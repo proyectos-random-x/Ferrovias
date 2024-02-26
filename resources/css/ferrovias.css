@@ -1,0 +1,180 @@
+* {
+	scroll-behavior: smooth;
+}
+body {
+	background: url('../images/Ferrovias_bg_body.jpg') center bottom/cover fixed no-repeat;
+}
+.navbar.bg-body-tertiary {
+	top: 0;
+	margin-top: 1rem;
+	z-index: 9;
+}
+header, .subMenu, .bg-filter {
+	--bs-opacity: .8;
+	background-color: rgba(var(--bs-body-bg-rgb), var(--bs-opacity));
+	backdrop-filter: blur(6px);
+}
+@media (prefers-color-scheme: dark) {
+	header, .subMenu, .bg-filter {
+		--bs-opacity: .85;
+	}
+}
+#mode_change {
+	width: 2.8rem;
+	height: 2.8rem;
+	font-size: 2rem;
+	text-align: center;
+	display: block;
+}
+.card {
+	border: 1px solid transparent!important;
+}
+.estadoServicio {
+	--color: var(--bs-body-bg);
+	border-left-width: 5px!important;
+	border-left-style: solid!important;
+	border-left-color: var(--color)!important;
+	height: 112px;
+}
+.estadoServicio.rojo {
+	--color: var(--bs-danger);
+}
+.estadoServicio.amarillo {
+	--color: var(--bs-yellow);
+}
+.estadoServicio.verde {
+	--color: var(--bs-success);
+}
+.proximosTrenes {
+	background: var(--bs-body-bg) url('../images/tren_frente.png') -.3rem center/4rem no-repeat;
+	padding-left: 3rem;
+}
+.subMenu .nav-link {
+	color: var(--bs-body-text);
+}
+figure img {
+	height: 250px;
+	object-fit: cover
+}
+lite-youtube {
+    background-color: #000;
+    position: relative;
+    display: block;
+    contain: content;
+    background-position: center center;
+    background-size: cover;
+    cursor: pointer;
+    max-width: 720px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+ }
+/* gradient */
+lite-youtube::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==);
+    background-position: top;
+    background-repeat: repeat-x;
+    height: 60px;
+    padding-bottom: 50px;
+    width: 100%;
+    transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* responsive iframe with a 16:9 aspect ratio
+    thanks https://css-tricks.com/responsive-iframes/
+*/
+lite-youtube::after {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (16 / 9));
+}
+lite-youtube > iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+}
+
+/* play button */
+lite-youtube > .lty-playbtn {
+	display: block;
+	/* Make the button element cover the whole area for a large hover/click target… */
+	width: 100%;
+	height: 100%;
+	/* …but visually it's still the same size */
+	background: no-repeat center/68px 48px;
+	/* YT's actual play button svg */
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');
+	position: absolute;
+	cursor: pointer;
+	z-index: 1;
+	filter: grayscale(100%);
+	transition: filter .1s cubic-bezier(0, 0, 0.2, 1);
+	border: 0;
+}
+
+lite-youtube:hover > .lty-playbtn,
+lite-youtube .lty-playbtn:focus {
+    filter: none;
+}
+
+/* Post-click styles */
+lite-youtube.lyt-activated {
+    cursor: unset;
+}
+lite-youtube.lyt-activated::before,
+lite-youtube.lyt-activated > .lty-playbtn {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.lyt-visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.lty-logosite {
+	position: absolute;
+	bottom: 0.5rem;
+	right: 0.5rem;
+	width: 50px;
+	height: 50px;
+	background-color: rgba(var(--bs-body-bg-rgb), .89);
+	padding: 0.2rem;
+	border-radius: .3rem!important;
+}
+ol.ayuda-lista li {
+	display: block;
+	padding: 0.5rem;
+	color: var(--bs-danger-text-emphasis);
+}
+ol.ayuda-lista li:hover {
+	cursor: pointer;
+	background-color: rgba(var(--bs-danger-rgb), .13);
+	border-radius: .3rem;
+}
+ul.ayuda-lista-consulta li {
+	margin-bottom: 0.3rem;
+}
+ul.ayuda-lista-consulta li span {
+	text-transform: uppercase;
+	font-weight: 700;
+	background-color: rgba(var(--bs-danger-rgb), .13);
+	color: var(--bs-danger);
+	display: inline-block;
+	width: 2rem;
+	height: 2rem;
+	text-align: center;
+	line-height: 2rem;
+	margin-right: 0.3rem;
+	border-radius: 10em;
+}
